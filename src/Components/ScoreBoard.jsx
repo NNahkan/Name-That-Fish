@@ -1,15 +1,16 @@
 import "./styles/score-board.css";
 //  Where the score is presented
-const incorrectCount = 0;
-const correctCount = 0;
-const answersLeft = ["trout", "salmon", "shark", "tuna"];
 
-export const ScoreBoard = () => {
+ 
+export const ScoreBoard = ({ correct, incorrect,total,answersLeft }) => {
+  const incorrectCount = incorrect;
+  const correctCount = correct;
+ 
   return (
     <div id="score-board">
       <div>Incorrect 🔻: {incorrectCount}</div>
       <div id="choices-left">
-        {answersLeft.map((answer) => (
+        {answersLeft.slice(total).map((answer) => (
           <div key={answer} className="choice">
             {answer}
           </div>
